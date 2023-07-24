@@ -1,0 +1,343 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+for(x in 1:10)
+{
+  print(x)
+}
+  
+```
+
+
+## Concatenate elements
+
+```{r}
+text <- 'awesome'
+paste("R is",text)
+```
+
+```{r}
+text1 <- "R is"
+text2 <- "awesome"
+paste(text1,text2)
+```
+### If we try to combine a string and a number, we will get error:
+```{r}
+num <- 5
+text <- "some text"
+num + text
+```
+
+### hence we can use paste() method :
+```{r}
+num <- 5
+text <- "some text"
+paste(num,text)
+```
+## Multiple Variables
+
+```{r}
+var1 <- var2 <- var3 <- "Apple"
+
+var2
+var1
+var3
+```
+
+## Data Types
+
+* numeric :- (15, 13.4, 465)
+* integer :- (1L, 27L, 104L, where the letter 'L' is present is integer )
+* complex :- (9 + 3i, where 'i' is imaginary part )
+* character :- (aka: string) :- ("ajay", "v", "12"... )
+* logical :- (aka: boolean) :- (TRUE or FALSE/ T or F)
+
+```{r}
+class("ajay")
+class(100)
+class(12.5)
+class(15L)
+class(T)
+class(3+9i)
+```
+
+## Type conversion
+
+* as.numeric()
+* as.integer()
+* as.complex()
+
+```{r}
+x <- 17.34
+y <- 199L
+z <- 10
+cmp <- 7+4i
+
+
+a <- as.integer(x)
+a
+class(a)
+
+b <- as.numeric(y)
+b
+class(b)
+
+c <- as.complex(z)
+c
+class(c)
+
+d <- as.integer(cmp)
+d
+class(d)
+
+```
+
+## Math functions in R
+
+* max()
+* min()
+* sqrt()
+* abs()
+* ceiling()
+* floor()
+
+
+```{r}
+max(45,65,47)
+min(45,65,47)
+```
+```{r}
+sqrt(16)
+```
+
+```{r}
+abs(-4.7)
+```
+```{r}
+ceiling(1.4)
+floor(1.4)
+```
+
+## Strings
+
+### Multiline string
+
+```{r}
+str <- "Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."
+
+str
+```
+``` This will add "\n" to every line break following can be used to get rid of it ```
+
+``` Using cat() function :```
+```{r}
+str <- "Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."
+
+cat(str)
+```
+### String Length
+
+```{r}
+str <- "Hello world!"
+nchar(str)
+```
+
+### Check a String 
+
+``` Use the grepl() function to check if a character or a sequence of characters are present in a string: ```
+
+```{r}
+str <- "Hello World!"
+grepl("H",str)
+grepl("World",str)
+grepl("HELLO",str)
+```
+### Combine Two strings
+
+```{r}
+str1 <- "hello"
+str2 <- "world"
+paste(str1,str2)
+```
+
+## R Escape Characters
+``` An escape character is a backslash \ followed by the character you want to insert.```
+
+``` Following statement will give error because we are using " " inside " "
+```{r}
+str <- "We are the so-called "Vikings", from the north."
+str
+```
+
+``` To fix this problem, use the escape character \": ```
+
+```{r}
+str <- "We are so-called \"Vikings\", from the north."
+cat(str)
+```
+
+## Other escape characters in R:
+```
+* \\    Backslash
+* \n    New line
+* \r    Carriage Return
+* \t    Tab
+* \b    Backspace
+```
+
+
+```{r}
+str <- "This is the example of using a backslash : \\ "
+cat(str)
+
+str1 <- "\n\nThis is the example of \nusing new line "
+cat(str1)
+
+```
+```{r}
+str <- "this \r is the example of using carriage return: "
+str
+cat(str)
+```
+
+```{r}
+str <- "this is the \texample of tab"
+cat(str)
+```
+
+```{r}
+str <- "this is the\b example of backspace"
+str
+cat(str)
+```
+
+## R Booleans / Logical Values
+
+```{r}
+10 > 12
+10 < 12
+```
+
+## Operators
+
+```
+* Arithmetic Operators
+  + Addition            +
+  + Subtraction         -
+  + Multiplication      *
+  + Division            /
+  + Exponent            ^
+  + Modulus             %%
+  + Integer Division    %/%
+  
+  
+* Comparison Operators
+  + Equal                      ==
+  + Not equal                  !=
+  + greater than               >
+  + less than                  <
+  + greater then or equal to   >=
+  + less then or equal to      <=
+
+
+
+* Logical Operators
+  + &   
+  + &&
+  + |
+  + ||
+  + !
+  
+  
+* Miscellaneous Operators
+  + :       create a series of numbers in a sequence    x <- 1:10
+  + %in%    Find out if an element belongs to a vector  x %in% y
+  + %*%     matrix multiplication                       x <- Matrix1 %*% Matrix2
+```
+
+## If... Else
+
+```{r}
+a <- 20
+b <- 30
+
+if (b > a)
+{
+  print("b is Greater than a")
+}
+```
+```R uses curly brackets { } to define the scope in the code.```
+
+## else if and else
+
+```{r}
+a <- 300
+b <- 30
+
+if(b > a) {
+  print("b is greater than a")
+} else if(a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}
+```
+
+``` Note that 'else if' should always be written immediately after end of if block``` 
+
+
+## Nested If Statements
+
+```You can also have if statements inside if statements, this is called nested if statements.```
+
+```{r}
+
+x <- 11
+if(x > 10) {
+  print("Above 10")
+  if(x > 20) {
+    print("And also above 20")
+  } else {
+    print("But not above 20")
+  }
+} else {
+  print("below 10")
+}
+```
+
+## While Loop 
+
+
+```{r}
+i <- 1
+while(i < 6) {
+  print(i)
+  i <- i + 1
+}
+```
+
+``` In while loop we can also use 'break' to break the normal flow of the code even if the condition is TRUE. ```
+
+```In while loops we can also use 'next' statement to skip an iteration without terminating the loop.```
+
+```{r}
+i <- 0
+while (i < 6) {
+  i <- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+```
+
+
