@@ -1,0 +1,2 @@
+For Salary problem I have done preprocessing of both training data 
+and testing data into seperate notebooks and finally added those two dataframes into final model file ie. SVM_salary_Model.ipynb
